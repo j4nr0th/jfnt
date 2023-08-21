@@ -7,12 +7,11 @@ find_package(Freetype REQUIRED)
 find_package(Fontconfig REQUIRED)
 
 add_library(jfnt
-        source/font.c
-        source/font.h
-        source/error.c
-        source/error.h
-        source/glyphs.c
-        source/glyphs.h
+        source/jfnt_font.c
+        include/jfnt_font.h
+        source/jfnt_error.c
+        include/jfnt_error.h
+        include/jfnt.h
 )
 if (CMAKE_C_COMPILER_ID STREQUAL GNU)
     target_compile_options(jfnt PRIVATE -Wall -Wextra -Werror)
@@ -28,5 +27,4 @@ add_executable(raster_test
         tests/raster_test.c
         ${TEST_FILES})
 target_link_libraries(raster_test PRIVATE jfnt png16)
-target_compile_options(raster_test PRIVATE -Wall -Wextra -Werror)
 

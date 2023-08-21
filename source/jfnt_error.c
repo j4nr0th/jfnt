@@ -2,7 +2,7 @@
 // Created by jan on 19.8.2023.
 //
 
-#include "error.h"
+#include "../include/jfnt_error.h"
 
 static const struct {const char* message; const char* name;} RESULT_MESSAGES[JFNT_RESULT_COUNT] =
         {

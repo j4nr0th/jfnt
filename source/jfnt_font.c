@@ -3,11 +3,36 @@
 //
 
 #include <assert.h>
-#include "font.h"
+#include "../include/jfnt_font.h"
 
 #include <fontconfig/fontconfig.h>
 #include <ft2build.h>
 #include FT_FREETYPE_H
+
+struct jfnt_bitmap_T
+{
+    unsigned width;
+    unsigned height;
+    unsigned char* data;
+};
+typedef struct jfnt_bitmap_T jfnt_bitmap;
+struct jfnt_font_T
+{
+    jfnt_allocator_callbacks allocator_callbacks;
+    jfnt_error_callbacks error_callbacks;
+
+    unsigned count_glyphs;
+    unsigned capacity_glyphs;
+    jfnt_glyph* glyphs;
+
+    unsigned int size_x, size_y;
+    unsigned int height;
+    jfnt_bitmap bmp;
+    unsigned tex_w;
+    unsigned tex_h;
+    unsigned average_width;
+    int ascent; int descent;
+};
 
 static void* default_alloc_fn(void* state, size_t size)
 {

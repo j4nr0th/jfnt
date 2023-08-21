@@ -2,7 +2,7 @@
 // Created by jan on 21.8.2023.
 //
 #include "test_common.h"
-#include "../source/font.h"
+#include "../include/jfnt_font.h"
 #include <libpng16/png.h>
 #include <wchar.h>
 #include <locale.h>

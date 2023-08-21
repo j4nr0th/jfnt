@@ -6,7 +6,7 @@
 #define JFNT_TEST_COMMON_H
 #include <stdlib.h>
 #include <stdio.h>
-#include "../source/error.h"
+#include "../include/jfnt_error.h"
 #include <uchar.h>
 typedef struct jfnt_font_T jfnt_font;
 

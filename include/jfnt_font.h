@@ -2,11 +2,11 @@
 // Created by jan on 19.8.2023.
 //
 
-#ifndef JFNT_FONT_H
-#define JFNT_FONT_H
+#ifndef JFNT_JFNT_FONT_H
+#define JFNT_JFNT_FONT_H
 #include <stddef.h>
-#include "error.h"
-#include "glyphs.h"
+#include <uchar.h>
+#include "jfnt_error.h"
 
 typedef struct jfnt_font_T jfnt_font;
 struct jfnt_error_callbacks_T
@@ -27,31 +27,16 @@ struct jfnt_allocator_callbacks_T
 };
 typedef struct jfnt_allocator_callbacks_T jfnt_allocator_callbacks;
 
-struct jfnt_bitmap_T
+
+struct jfnt_glyph_T
 {
-    unsigned width;
-    unsigned height;
-    unsigned char* data;
+    char32_t codepoint;
+    signed short top, left;
+    unsigned short w, h;
+    unsigned short advance_x, advance_y;
+    unsigned int offset_x;
 };
-typedef struct jfnt_bitmap_T jfnt_bitmap;
-
-struct jfnt_font_T
-{
-    jfnt_allocator_callbacks allocator_callbacks;
-    jfnt_error_callbacks error_callbacks;
-
-    unsigned count_glyphs;
-    unsigned capacity_glyphs;
-    jfnt_glyph* glyphs;
-
-    unsigned int size_x, size_y;
-    unsigned int height;
-    jfnt_bitmap bmp;
-    unsigned tex_w;
-    unsigned tex_h;
-    unsigned average_width;
-    int ascent; int descent;
-};
+typedef struct jfnt_glyph_T jfnt_glyph;
 
 struct jfnt_codepoint_range_T
 {
@@ -118,4 +103,4 @@ void jfnt_report_error(const jfnt_font* font, const char* file, int line, const 
 
 #define JFNT_ERROR(fnt, fmt, ...) jfnt_report_error((fnt), __FILE__, __LINE__, __func__, (fmt) __VA_OPT__(,) __VA_ARGS__)
 
-#endif //JFNT_FONT_H
+#endif //JFNT_JFNT_FONT_H

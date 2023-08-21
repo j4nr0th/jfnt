@@ -2,8 +2,8 @@
 // Created by jan on 19.8.2023.
 //
 
-#ifndef JFNT_ERROR_H
-#define JFNT_ERROR_H
+#ifndef JFNT_JFNT_ERROR_H
+#define JFNT_JFNT_ERROR_H
 enum jfnt_result_T
 {
     JFNT_RESULT_SUCCESS = 0,
@@ -29,4 +29,4 @@ const char* jfnt_result_to_str(jfnt_result res);
 const char* jfnt_result_message(jfnt_result res);
 
 
-#endif //JFNT_ERROR_H
+#endif //JFNT_JFNT_ERROR_H
