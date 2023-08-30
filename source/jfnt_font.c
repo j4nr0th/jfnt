@@ -839,3 +839,24 @@ void jfnt_font_image(const jfnt_font* font, unsigned int* p_width, unsigned int*
     *p_height = font->bmp.height;
     *p_data = font->bmp.data;
 }
+
+void
+jfnt_font_get_sizes(const jfnt_font* font, unsigned* p_height, unsigned* p_avg_w, unsigned* p_size_h, unsigned* p_size_v)
+{
+    if (p_height)
+    {
+        *p_height = font->height;
+    }
+    if (p_avg_w)
+    {
+        *p_avg_w = font->average_width;
+    }
+    if (p_size_h)
+    {
+        *p_size_h = font->size_x;
+    }
+    if (p_size_v)
+    {
+        *p_size_v = font->size_y;
+    }
+}

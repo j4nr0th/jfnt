@@ -92,6 +92,9 @@ jfnt_result jfnt_font_find_glyphs_utf8(
         const jfnt_font* font, const char* utf8, char32_t unsupported_replace, size_t max_len, size_t* p_count,
         int* p_indices);
 
+void
+jfnt_font_get_sizes(const jfnt_font* font, unsigned* p_height, unsigned* p_avg_w, unsigned* p_size_h, unsigned* p_size_v);
+
 const jfnt_glyph* jfnt_font_get_glyphs(const jfnt_font* font);
 
 void jfnt_font_image(const jfnt_font* font, unsigned* p_width, unsigned* p_height, const unsigned char** p_data);
