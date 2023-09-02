@@ -663,7 +663,7 @@ static int find_glyph(const jfnt_font* font, char32_t c)
     unsigned pos = 0;
     while (len > 8)
     {
-        unsigned step = (len - pos) / 2;
+        unsigned step = (len) / 2;
         if (font->glyphs[pos + step].codepoint > c)
         {
             len = step;
@@ -724,7 +724,12 @@ jfnt_result jfnt_font_find_glyphs_utf8(
     {
         const unsigned char zb = *ptr;
         char32_t c = zb;
-        if ((zb & 0xE0) == 0xC0)
+        if (c < 0x80)
+        {
+            //  One byte character
+            ;   //  No-op
+        }
+        else if ((zb & 0xE0) == 0xC0)
         {
             //  2 byte codepoint
             ptr += 1;
