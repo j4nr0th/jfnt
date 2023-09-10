@@ -15,7 +15,7 @@ typedef struct jfnt_font_T jfnt_font;
         #define ASSERT(x) if (!(x)) {fprintf(stderr, "Assertion failed \"%s\"\n", #x); __builtin_trap();}(void)0
     #endif
 #else
-#define ASSERT(x) if (!(x)) {fprintf(stderr, "Assertion failed \"%s\"\n", #x); exit(EXIT_FAILED);}(void)0
+#define ASSERT(x) if (!(x)) {fprintf(stderr, "Assertion failed \"%s\"\n", #x); exit(EXIT_FAILURE);}(void)0
 #endif
 
 #ifndef ASSERT
