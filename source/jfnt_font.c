@@ -865,3 +865,20 @@ jfnt_font_get_sizes(const jfnt_font* font, unsigned* p_height, unsigned* p_avg_w
         *p_size_v = font->size_y;
     }
 }
+
+void
+jfnt_font_get_measures(const jfnt_font* font, unsigned* p_height, int* ascent, int* descent)
+{
+    if (p_height)
+    {
+        *p_height = font->height;
+    }
+    if (ascent)
+    {
+        *ascent = font->ascent;
+    }
+    if (descent)
+    {
+        *descent = font->descent;
+    }
+}
