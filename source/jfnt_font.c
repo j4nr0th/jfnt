@@ -315,7 +315,7 @@ ft_font_load(FT_Face font, unsigned range_count, const jfnt_codepoint_range* ran
     }
     memset(bmp.data, 0, sizeof(total_w * max_h));
 
-    jfnt_glyph* const glyphs = calloc(n_chars, sizeof(*glyphs));
+    jfnt_glyph* const glyphs = jfnt_alloc(fnt, n_chars * sizeof(*glyphs));
     if (!glyphs)
     {
         jfnt_free(fnt, tmp);
