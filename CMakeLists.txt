@@ -3,6 +3,7 @@ project(jfnt C)
 
 set(CMAKE_C_STANDARD 99)
 
+find_package(Freetype CONFIG)
 find_package(Freetype REQUIRED)
 find_package(Fontconfig REQUIRED)
 

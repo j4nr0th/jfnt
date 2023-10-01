@@ -107,6 +107,10 @@ __attribute__((format(printf, 5, 6)))
 #endif
 void jfnt_report_error(const jfnt_font* font, const char* file, int line, const char* function, const char* fmt, ...);
 
-#define JFNT_ERROR(fnt, fmt, ...) jfnt_report_error((fnt), __FILE__, __LINE__, __func__, (fmt) __VA_OPT__(,) __VA_ARGS__)
+#ifdef __GNUC__
+    #define JFNT_ERROR(fnt, fmt, ...) jfnt_report_error((fnt), __FILE__, __LINE__, __func__, (fmt) __VA_OPT__(,) __VA_ARGS__)
+#else
+    #define JFNT_ERROR(fnt, fmt, ...) jfnt_report_error((fnt), __FILE__, __LINE__, __func__, (fmt), __VA_ARGS__)
+#endif
 
 #endif //JFNT_JFNT_FONT_H
